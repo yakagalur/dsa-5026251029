@@ -15,19 +15,24 @@ public class Main {
             return;
         }
 
-        try (Scanner scanner = new Scanner(input)) {
+        Scanner scanner = new Scanner(Main.class.getResourceAsStream("jobs.txt"));
+
             while (scanner.hasNext()) {
                 String type = scanner.next();
                 String id = scanner.next();
                 int pages = scanner.nextInt();
+                
+                PrintJob job;
 
-                if (type.equalsIgnoreCase("MONO")) {
-                    jobs.add(new MonoPrint(id, pages));
-                } else if (type.equalsIgnoreCase("COLOUR")) {
-                    jobs.add(new ColourPrint(id, pages));
+                if (type.equals("Mono")) {
+                    job = new MonoPrint(id, pages);
+                } else {
+                    job = new ColourPrint(id, pages);
                 }
+
+                jobs.add(job);
             }
-        }
+            scanner.close();
 
         // Polimorfisme: Memanggil summary() melalui referensi superclass PrintJob
         for (PrintJob job : jobs) {

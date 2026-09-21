@@ -8,10 +8,10 @@ public class ColourPrint extends PrintJob {
     @Override 
     public int calculateCharge() {
         int pageCharge;
-        if (pages <=10) {
-            pageCharge = pages * 1500;
+        if (getPages() <= 10) {
+            pageCharge = getPages() * 1500;
         } else {
-            pageCharge = (10 * 1500) + ((pages-10) * 1000);
+            pageCharge = (10 * 1500) + ((getPages()-10) * 1000);
         }
         return pageCharge + 2000;
     }
