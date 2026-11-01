@@ -42,7 +42,7 @@ public class Main {
     
     // modifikasi INSERTION SORT 
     public static void sort (int[] a) {
-        // Melakukan iterasi tepat 3 passes (dari index 1 hingga 3)
+        // Melakukan iterasi tepat 3 passes (dari index 1 hingga  3)
         for (int nextPos = 1; nextPos <= 3; nextPos++) {
             insert(a, nextPos);
         }
